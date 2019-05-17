@@ -1,0 +1,391 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+<link rel="Shortcut Icon" href="images/favicon.ico" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Directory of Assessment - Find Entries</title>
+<style type="text/css">
+      
+#Search {
+
+height: 38px;
+width: 111px;
+}
+       
+#Reset {
+
+height: 38px;
+width: 111px;
+
+        } 
+
+#DirectorOfAssessment {
+width: 269px;
+        }
+		
+table {
+
+border-collapse: collapse;
+width: 800px;
+margin-left: 40px;
+margin-right: 2px;
+margin-top: 0px;
+margin-top: 10px;
+height: 200px;
+margin-bottom: 8px;
+    
+}
+
+th, td {
+
+text-align: left;
+padding: 15px;
+
+}
+		
+th {
+
+background-color: #000;
+color: white;
+border-style: solid;
+border-color: #fff;
+
+        }
+
+tr:nth-child(even){background-color: #F5F5F5;}
+
+* {
+
+box-sizing: border-box;
+}
+
+.main {
+
+width: 100%;
+margin: 0 auto;
+
+    }
+  
+#rightdiv { 
+
+padding: 20px;
+float: left; 
+width: 900px; 
+
+    }
+    
+#leftdiv {  
+
+padding: 10px;
+width: 300px; 
+float: left;
+
+    }
+
+    
+</style>
+
+</head>
+
+<body>
+    <div class="header">
+        
+        <div class="logo"><img src="images/logo.jpg" alt="logo"/>
+        </div>
+        <div class="DOAR">Directory of Assessment & Retention</div>
+
+    </div> 
+
+    <div class="navbar">
+    <ul>
+        <li><a href="AssessEntry.html">New Assessment</a></li>
+        <li><a href="FindEntries.html">Find Assessment</a></li>
+        <li><a href="Objective.html">New Objective</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+    </ul>
+</div>
+
+<div class="sidenavbar">
+        <div id="mySideNav" class="sidenav">
+            <ul>
+                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+                <li><a href="AssessEntry.html">New Assessment</a></li>
+                <li><a href="FindEntries.html">Find Assessment</a></li>
+                <li><a href="Objective.html">New Objective</a></li>   
+                <li><a href="Objective.html">New Objective</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+        <span style="font-size:30px; cursor:pointer; padding-left: 10px;" onclick="openNav()">&#9776;</span>
+    </div>
+
+<div class="main">
+<div id="leftdiv">
+<form id="form1" runat="server"> 
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="sb3yty7dzm5D8hnGaGfPlakTWqyRj4FwX4vwzZx5nNpUGkr5zPirffzx76pIg3dQpYzRUhEcoFCOA2qUgYvKE7iB6gSp4v6eNva3EUnwbnI=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B66A614E" />
+</div>
+	<div class="column left">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE2" value="6OWpUBmkB37Dc8wgn6YoTSnb/YUfp4hir9o42DkHZ5BVM6vHJnoX5jlf+TuKT/+I8nTKf1JqOfchDlfAW+FkPUraVSyp2p5hmHW4uFkCqf8uw1jPVfyfOAFsAayB2sSNIbiOAI7pxG1YMn/eaaAX8w==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR2" id="__VIEWSTATEGENERATOR2" value="B66A614E" />
+	<input type="hidden" name="__EVENTVALIDATION2" id="__EVENTVALIDATION2" value="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" />
+    </div>
+            <br />
+            <br />
+            <span style="font-weight:bold; font-size: 14pt; border: 10px solid black; background-color: #000; color: white;">Find Course Asssessments</span>
+            <br />
+            <br />
+            <br />
+            <span id="TermLabel" style="font-weight:bold;">Term: </span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+        <br />
+        <select>
+        <option value="-1">All</option>
+        <option value="1">FA 2018</option>
+        <option value="2">SP 2019</option>
+        <option value="3">SU 2019</option>
+        </select>
+        <br />
+            <br />
+            <span id="DepartmentLabel" style="font-weight:bold;">Department:</span>
+&nbsp;<br />
+            <br />
+           <select>
+           <option value="-1">All</option>
+           <option value="1">Accounting</option>
+	       <option value="2">Admin & Management</option>
+           <option value="3">Applied Studies</option>
+           <option value="4">Biology</option>
+           <option value="5">Chemistry</option>
+	       <option value="6">Communication, Media, Tech</option>
+           <option value="7">Computer Science</option>
+	       <option value="8">Education</option>
+           <option value="9">English</option>
+           <option value="10">English as a Sec Language</option>
+           <option value="12">Admin & Management</option>
+           <option value="13">Graphic Design</option>
+           <option value="14">Health Science</option>
+	       <option value="15">History</option>
+	       <option value="16">Human Resources Mgmt</option>
+	       <option value="17">Information Systems Tech</option>
+           <option value="18">Interior Design</option>
+	       <option value="19">International Studies</option>
+           <option value="20">Justice, Law, & Security</option>
+           <option value="21">LaRoche Experience</option>
+           <option value="22">Marketing</option>
+           <option value="23">Mathematics</option>
+           <option value="24">Modern Languages</option>
+	       <option value="25">Behavior Sci Other</option>
+	       <option value="26">Nursing</option>
+	       <option value="27">Performing Arts</option>
+           <option value="28">Physical Education</option>
+	       <option value="29">Psychology</option>
+	       <option value="30">Religious Studies</option>
+            <option value="31">Sociology</option>
+            </select>
+            <br />
+            <br />
+            <span id="CourseNumber" style="font-weight:bold;">Course Number:</span>
+    <br />
+            <br />
+        <input id="CourseNum" type="text" style="font-family: Arial;"/><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            <span id="CourseProgramLabel" style="font-weight:bold;">Course Program:</span>
+&nbsp;&nbsp;<br />
+            <br />
+            <select>
+            <option value="-1">All</option>
+            <option value="1">Undergraduate</option>
+            <option value="2">Graduate</option>
+            <option value="3">International Program</option>
+            </select>
+&nbsp;<br />
+            <br />
+            <span id="CourseAreaLabel" style="font-weight:bold;">Course Area:</span>
+&nbsp;<br />
+            <br />
+        <select>
+        <option value="-1">All</option>
+        <option value="1">British</option>
+        <option value="2">Literature</option>
+        <option value="3">Community</option>
+        <option value="4">Comparative Politics</option>
+        <option value="5">Drama</option>
+        <option value="6">Engineering Adv Life Sci</option>
+        <option value="7">Engineering Communications</option>
+        <option value="8">Engineering Comp Science</option>
+        <option value="9">Engineering Mathematics</option>
+        <option value="10">Film Only</option>
+        <option value="11">Film/Drama</option>
+        <option value="12">Global</option>
+        <option value="13">Honors Course</option>
+        <option value="14">Health Sci Elective-UNDG</option>
+        <option value="15">La Roche Experience</option>
+        <option value="16">Literature</option>
+        <option value="17">Non-U.S. History</option>
+        <option value="18">Selects</option>
+        <option value="19">Study Abroad/Study USA</option>
+        <option value="20">United States History</option>
+        <option value="21">Writing</option>
+        </select>
+			<br />
+            <br />
+			<input id="Search" type="button" value="Search"  onclick="lookup()"/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <input id="Reset" type="button" value="Reset" /> 
+           
+			<br />
+            <br />
+            <br />
+            <br />
+            </div>
+           </form>
+            <br />
+        </div>
+            <div id="rightdiv">
+                  
+		 <table id="searchtable">
+    <tr>
+    <th>Course Title</th>
+	<td><span id="sp1"></span></td>
+	</tr>
+	 <tr>
+    <th>Semester / Year</th>
+	<td><span id="sp2"></span></td>
+	</tr>
+    <tr>
+    <th>Modified</th>
+	<td><p id ="datemodified"></p></td>
+    </tr>
+    <tr>
+	<th>Course Description</th>
+	<td><span id="sp3"></span></td>
+	</tr>
+    <tr>
+    <th>Intended Learning Outcomes</th>
+    <td><span id="sp4"></span></td>
+	</tr>
+	<tr>
+	<th>Course Objectives</th>
+	<td><span id="sp5"></span></td>
+	</tr>
+	<tr>
+	<th>Learning Activities &amp; Assignments</th>
+	<td><span id="sp6"></span></td>
+	</tr>
+	<tr>
+	<th>Assessment Methods</th>
+	<td><span id="sp7"></span></td>
+	</tr>
+	<tr>
+	<th>Achievement Target 1</th>
+	<td><span id="sp8"></span></td>
+	</tr>
+	<tr>
+	<th>Achievement Target 2</th>
+	<td><span id="sp9"></span></td>
+	</tr>
+	<tr>
+	<th>Finding 1</th>
+	<td><span id="sp10"></span></td>
+	</tr>
+	<tr>
+	<th>Finding 2</th>
+	<td><span id="sp11"></span></td>
+	</tr>
+  </table>
+        </div> 
+        </div>
+        <footer style="clear: both;">
+        <ul>
+		<li>
+        <div class="link-holder">
+            <h4>Contact</h4>
+            <div class="link"><a href="mailto:">helpdesk@stu.laroche.edu</a></div>
+			<div class="link">800-789-43216</div>
+		</div>
+		</li>
+		<li>
+            <div class="link-holder">
+                <h4>Quick Links</h4>
+                <div class="link"><a href="AssessEntry.html">New Assessment</a></div>
+                <div class="link"><a href="FindEntries.html">Find Assessment</a></div>
+                <div class="link"><a href="Objective.html">New Objective</a></div>
+                <div class="link"><a href="About.html">About</a></div>
+                <div class="link"><a href="FAQ.html">FAQ</a></div>
+            </div>
+		</li>
+		<li>
+        <div class="link-holder">
+            <h4>Site Info</h4>
+            <div class="link"><a href="#">Latest Updates</a></div>
+			<div class="link"><a href="#">Upcoming Events</a></div>
+			<div class="link"><a href="#">Ask A Question</a></div>		
+        </div>
+		</li>
+        </ul>
+      <div class="bottom-bar">
+	  <div class="bottom-bar-wrap">
+    All Rights Reserved &copy; 2018 Ariel Gelman | <a href="PrivacyPolicy.html">Privacy Policy</a> | <a href="TOS.html">Terms of Service</a>
+    </div>
+    </div>
+    </footer>
+     <script> 
+        $(document).ready(function () {
+        $("#searchtable").hide();
+        });</script>
+        
+        <script>
+      
+		 var a = "This Assessment Entry was last modified on: " + document.lastModified;
+         function lookup() {
+		 
+		 var b = document.getElementById("CourseNum").value;
+		 
+		 if  (b === "ISTC1005-05"){
+
+         var x = document.getElementById("searchtable");
+
+         $("#Search").click(function(){
+         $("#searchtable").show();
+         });
+           
+         
+		 document.getElementById("sp1").innerHTML = "<strong>ISTC1005-05 Practical Computer Applications</strong>";
+		 document.getElementById("sp2").innerHTML = "<strong>Fall 2015</strong>";
+		 document.getElementById("datemodified").innerHTML = a; 
+		 document.getElementById("sp3").innerHTML = "Email etiquette and management as well as effective and efficient access and evaluation of information from the Internet are also introduced. Emphasis is on learning the concepts and skills necessary to complete the task at hand using the computer, related software, and the Internet. While learning the keystrokes is important, equally important is using the right tool for the right job. Word processing, electronic spreadsheets, graphic presentations, and the Windows Operating environments including file and folder management are presented in this course.";
+		 document.getElementById("sp4").innerHTML = "SLO 2 - Use technology effectively to access and manage information";
+		 document.getElementById("sp5").innerHTML = "Use the operating system effectively to manipulate windows, navigate the system, find files, manage files, and customize the desktop."; 
+		 document.getElementById("sp6").innerHTML = "Lecture, Inclass handson practice activities, Homework assignments, Reading assignments";
+		 document.getElementById("sp7").innerHTML = "1.Chapter 1 homework project 1F (See summary rubric). 2.Chapter 1 homework project 1I (See summary rubric.";
+		 document.getElementById("sp8").innerHTML = "1.80% of more of students will demonstrate a proficient level of competency in using the operating system effectively on chapter 1 homework project 1F, as evaluated using the rubric.";
+	     document.getElementById("sp9").innerHTML = "2.80% of more of students will demonstrate a proficient level of competency in using the operating system effectively on chapter 1.";
+		 document.getElementById("sp10").innerHTML = "1.Target met. 86% of students demonstrated a proficient level of competency on homework project 1F in using the operating system to navigate the system, find files, and manage files.";
+		 document.getElementById("sp11").innerHTML = "2.Target partially met. 81% of students demonstrated a proficient level of competency in comparing the functions of copying and moving files. 52% of students demonstrated proficiency in describing the six techniques for copying and moving files.";
+		   }
+		
+		}
+         </script>
+	 <script>
+     document.getElementById("datemodified").style.textAlign = "center";
+     </script>
+</body>
+</html>

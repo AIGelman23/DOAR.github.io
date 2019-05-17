@@ -1,0 +1,185 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>Directory of Assessment - New Objective</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<link rel="Shortcut Icon" href="images/favicon.ico" type="image/x-icon"/>
+<style type="text/css">
+
+
+textarea, input:invalid {
+box-shadow: 0 0 5px 1px red;
+    }
+
+textarea:focus:invalid {
+outline: none;
+    }
+        
+#Reset1 {
+        height: 48px;
+        width: 123px;
+}
+    
+#Reset {
+        height: 54px;
+        width: 121px;
+}
+
+
+
+.main {
+
+ width: 40%; 
+ margin: 0 auto;  
+
+}
+  
+#rightdiv { 
+
+float: left;
+padding: 20px;
+background-color: lightgrey;
+    }
+    
+#leftdiv { 
+clear: both;
+padding: 10px;
+    }
+
+        
+    #form1 {
+        height: 531px;
+    }
+
+        
+    </style>
+</head>
+<body>
+<div class="header"> 
+<div class="logo"><img src="images/logo.jpg" alt="logo"/></div>
+<div class="DOAR">Directory of Assessment & Retention</div></div> 
+
+<div class="navbar">
+    <ul>
+       
+        <li><a href="AssessEntry.html">New Assessment</a></li>
+        <li><a href="FindEntries.html">Find Assessment</a></li>
+        <li><a href="Objective.html">New Objective</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+    </ul>
+</div>
+
+ <div class="sidenavbar">
+<div id="mySideNav" class="sidenav"> 
+    <ul>
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+        <li><a href="AssessEntry.html">New Assessment</a></li>
+        <li><a href="Objective.html">New Objective</a></li>
+        <li><a href="FindEntries.html">Find Entries</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+    </ul>
+</div>
+<span style="font-size:30px; cursor:pointer; padding-left: 10px;" onclick="openNav()">&#9776;</span>
+</div>
+
+<div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+<div id="rightdiv">
+        <form id="form1" runat="server">
+                 <span style="font-weight:bold; font-size: 14pt; border: 10px solid black; background-color: #000; color: white;">Enter New Course Objective</span>
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="CourseNumLabel" runat="server" Text="Course Number" Font-Bold="True"></asp:Label>
+                <br />
+                <br />
+                <input id="CourseNumber" type="text" placeholder="Type a course number..." style="background-color: #FFFDC1; box-shadow: 0 0 5px 1px red; height: 50px; width: 300px;"/>
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Objective" runat="server" Text="Course Objective" Font-Bold="True"></asp:Label>
+                    <br />
+                    <br />
+                <textarea id="CourseObjectiveTxt" name="CourseObjective" placeholder="Type a course objective..."style="height:131px; width: 421px; font-family: Arial; margin-top: 11px;" required></textarea>
+            <br />
+                &nbsp;<br />
+                <div style="height: 86px; width: 440px">
+                    <input id="Submit" type="button" value="Submit" onclick="submitFunction()"/><input id="Reset" type="reset" value="Reset" style="width: 121px; height: 54px; display: inline-block; padding: 16px 32px; font-size: 16px; cursor: pointer; text-align: center; text-decoration: none; outline: none; color: white; background-color: #000000; border-color: black; border-radius: 4px;"/></div>
+            <br />
+            <br />
+            <br />
+            <br /> 
+        </form>
+        </div>
+       
+    <div id="leftdiv">
+    <p id="confirmationLine" style="color: black; font-weight: bold; font-size: 12pt;"></p>
+    <p id="courseNumLine" style="color: black; font-weight: bold; font-size: 12pt;"></p>
+    <p id="courseObjectiveLine" style="color: black; font-weight: bold; font-size: 12pt; line-height: 90%;"></p>
+    <p id="recordsGenerated" style="color: black; font-weight: bold; font-size: 12pt; line-height: 90%;"></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer>        
+        <ul>
+		<li>
+        <div class="link-holder">
+            <h4>Contact</h4>
+            <div class="link"><a href="mailto:">helpdesk@stu.laroche.edu</a></div>
+			<div class="link">800-789-43216</div>
+		</div>
+		</li>
+		<li>
+            <div class="link-holder">
+                <h4>Quick Links</h4>
+                <div class="link"><a href="AssessEntry.html">New Assessment</a></div>
+                <div class="link"><a href="FindEntries.html">Find Assessment</a></div>
+                <div class="link"><a href="Objective.html">New Objective</a></div>
+                <div class="link"><a href="About.html">About</a></div>
+                <div class="link"><a href="FAQ.html">FAQ</a></div>
+            </div>
+		</li>
+		<li>
+        <div class="link-holder">
+            <h4>Site Info</h4>
+            <div class="link"><a href="#">Latest Updates</a></div>
+			<div class="link"><a href="#">Upcoming Events</a></div>
+			<div class="link"><a href="#">Ask A Question</a></div>		
+        </div>
+		</li>
+        </ul>
+      <div class="bottom-bar">
+	  <div class="bottom-bar-wrap">
+    All Rights Reserved &copy; 2018 Ariel Gelman | <a href="PrivacyPolicy.html">Privacy Policy</a> | <a href="TOS.html">Terms of Service</a>
+    </div>
+    </div>
+    </footer>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   
+     
+  
+       <script>
+        var recordCounter = 0;
+        recordCounter++;
+
+          function submitFunction() {
+        document.getElementById("confirmationLine").innerHTML = ("Entry Confirmation: ");
+        var a = document.getElementById("CourseNumber").value;
+        document.getElementById("courseNumLine").innerHTML = ("The Course Number entered was: ") + a;
+        var b = document.getElementById("CourseObjectiveTxt").value;
+        document.getElementById("courseObjectiveLine").innerHTML = ("The Course Objective entered was: ") + b;
+        document.getElementById('recordsGenerated').innerHTML = ("Record(s) Generated: Assess#") + recordCounter++;
+
+        }
+        </script>
+     
+</body>
+</html>

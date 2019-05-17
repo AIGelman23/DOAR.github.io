@@ -1,0 +1,414 @@
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+.DOAR {
+   font-family: "Lucida Sans", sans-serif;
+   font-size: 1.2em; 
+   text-shadow: 1px 0px 2px;
+}
+
+
+* {
+ box-sizing: border-box;
+  }
+  
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.header{
+  background-color: #ffffff;
+  color: #000000;
+  padding: 15px;
+}
+
+/* footer navigation styling starts here */
+
+
+footer {
+    border-left: 0 solid #AB160C;
+    border-right: 0 solid #AB160C;
+    border-top: 13px solid #AB160C;
+    border-bottom: 0 solid #AB160C;
+    margin-top: 15px;
+    background-color: #697070;
+    position: relative;
+    z-index: 1;
+	box-shadow: 1px 1px 8px gray;
+    top: -1px;
+    left: 0px;
+}
+
+footer .link {
+margin-top: 8px;
+}
+
+footer > ul li .link-holder {
+    color: #848889;
+    font-size: 13px;
+    line-height: 20px;
+    margin-left: 105px;
+    position: relative;
+    text-align: justify;
+}
+
+footer > ul {
+    list-style: none outside none;
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: hidden;
+    padding: 25px 0;
+    position: relative;
+    width: 95%;
+}
+footer > ul li {
+    float: left;
+    padding: 20px 15px;
+    width: 33.3%;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+
+footer > ul li .link-holder {
+    color: #fff;
+    font-size: 12pt;
+    line-height: 20px;
+    margin-left: 105px;
+    position: relative;
+    text-align: justify;
+}
+.link-holder h4 {
+    color: #000;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 15px;
+	text-shadow: 0px 0px 2px #000;
+}
+
+.link-holder a {
+    
+    text-decoration: none;
+    text-shadow: 0px 0px 3px #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.bottom-bar{
+position: relative;
+text-align: center;
+font-size:.8em;
+text-transform:uppercase;
+background:#000;
+padding:15px 0;
+color: #fff;
+}
+
+.bottom-bar a{color:#fff;}
+/*footer navigation styling ends here*/
+
+
+/* nav start */
+
+/* div that encapsulates sidenav for disappearing act */
+.sidenavbar {
+    background-color:#AB160C;
+    position: relative;
+    display: block;
+    padding: 20px 0 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+    font-size: 12pt;
+    color: #fff;
+}
+/* end of div for encapsulation of sidenav for disappearing act */
+
+.navbar {
+background-color:#AB160C;
+}
+
+.navbar ul {
+	/* margin-left: 10px; */
+    list-style: none;
+}
+.navbar li {
+    display: inline-block;
+    padding: 20px 0 20px;
+    vertical-align: middle;
+}
+.navbar a:hover, a:focus, a:active {
+    color: #999;
+    text-decoration: none;
+}
+.navbar a {
+    text-decoration: none;
+	text-shadow: 0px 0px 3px #000;
+}
+.navbar a {
+    position: relative;
+    display: block;
+    padding: 10px 0;
+    margin: 0 12px;
+    letter-spacing: 1px;
+    font-size: 12pt;
+    line-height: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+}
+.navbar a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform 0.1s;
+}
+.navbar a:active::before {
+    background-color: #fff;
+}
+.navbar a:hover::before, a:focus::before {
+    transform-origin: 20% 40%;
+    transform: scale(1, 1);
+}
+/*nav end */
+
+
+/* Start Drop Down Navigational Styling */
+.sidenav {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+	right: 0;
+	bottom: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+	overflow-y: scroll;
+    transition: 0.5s;
+}
+
+.sidenav-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.sidenav a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav li {
+	list-style-type: none;
+	text-align: center;
+	padding-bottom: 15px;
+	margin-top: 30px;
+}
+
+.sidenav a:hover, .sidenav a:focus {
+    color: #AB160C;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* End Drop Down Navigational Styling */
+
+/* !!!Begin All Media Queries!!! */
+
+/* Minimum Screen Width is 768px for desktop computer */
+
+@media screen and (max-height: 450px) {
+  .sidenav {overflow-y: auto;}
+  .sidenav a {font-size: 20px;}
+  .sidenav .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+  
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+@media screen and (max-width: 725px) {
+  div.navbar {
+    display: none!important;
+  }
+}
+
+@media only screen and (min-width: 725px) {
+ div.sidenavbar {
+   display: none;
+	}
+ }
+ 
+ /* Media Queries for Assessment Form */
+@media (max-width: 600px) {
+    .col-25, .col-75, #Submit {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+
+.footer-links-holder {
+margin: 0 auto;
+content: "";
+clear: both;
+display: table;
+	}
+}
+
+
+@media screen and (max-width: 1000px){
+   
+    .link-holder li {
+        display:inline-block;
+        float:none;
+    }
+    .bottom-bar {
+        position:relative;
+    }
+    .bottom-bar-wrap {
+        margin-bottom:0;
+    }
+}
+@media screen and (max-width: 835px)  {
+    footer > ul li {
+        float:none;
+        width:auto;
+    }
+}
+
+
+input[type=text], select, textarea {
+    width: 61%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    height: 29px;
+    margin-top: 21px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#AddMeasureButton {
+  background-image: url('images/AddMeasure.png');
+  width: 199px;
+  height: 50px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #ffffff;
+  border-color: black;
+  border-radius: 4px;
+    margin-top: 7px;
+}
+
+ #Submit {
+  width: 121px;
+  height: 54px;
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #000000;
+  border-color: black;
+  border-radius: 4px;
+  margin: 0px 23px 4px 0px;
+  float: right;
+  }
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+#AssessEntryDiv {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#AddMeasureControl{
+margin-top: 55px;
+margin-left: auto;
+margin-right: auto;
+}
+
+textarea {
+background-color: #FFFDC1;
+}
+
+select {
+background-color: lightblue;
+}
